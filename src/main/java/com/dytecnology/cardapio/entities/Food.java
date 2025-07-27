@@ -1,5 +1,6 @@
 package com.dytecnology.cardapio.entities;
 
+import com.dytecnology.cardapio.dtos.request.FoodRequestDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -19,4 +20,9 @@ public class Food {
     private String img;
     private Integer preco;
 
+    public Food(FoodRequestDto data) {
+        this.titulo = data.titulo();
+        this.img = data.img();
+        this.preco = data.preco();
+    }
 }
