@@ -1,0 +1,22 @@
+package com.dytecnology.cardapio.entities;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Entity(name = "foods")
+@Table(name= "foods")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
+public class Food {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long Id;
+    private String titulo;
+    private String img;
+    private Integer preco;
+
+}
