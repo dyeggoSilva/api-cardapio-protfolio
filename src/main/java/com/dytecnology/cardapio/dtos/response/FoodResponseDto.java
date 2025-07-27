@@ -1,4 +1,4 @@
-package com.dytecnology.cardapio.dtos;
+package com.dytecnology.cardapio.dtos.response;
 
 import com.dytecnology.cardapio.entities.Food;
 
