@@ -28,7 +28,7 @@ public class FoodController {
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
-    public Page<FoodResponseDto> getAll(@PageableDefault(size = 10, sort = "nome") Pageable pageable) {
+    public Page<FoodResponseDto> getAll(@PageableDefault(size = 6, sort = "titulo") Pageable pageable) {
         return foodService.getAll(pageable);
     }
 
