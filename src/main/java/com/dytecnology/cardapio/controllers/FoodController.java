@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("food")
@@ -20,10 +21,31 @@ public class FoodController {
     public String addfoods(@RequestBody FoodRequestDto foodRequestDto){
         return foodService.postFoods(foodRequestDto);
     }
+
+
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public List<FoodResponseDto> foods(){
         return foodService.getAll();
     }
+
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("/{id}")
+    public Optional<FoodResponseDto> foodById(@PathVariable Long id){
+        return foodService.buscarPorId(id);
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @PutMapping("/{id}")
+    public String updateFood(@PathVariable long id, @RequestBody FoodRequestDto foodRequestDto){
+        return foodService.atualizar(id,foodRequestDto);
+    }
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @DeleteMapping("/{id}")
+    public void deleteFood(@PathVariable Long id){
+        foodService.deletar(id);
+    }
+
 
 }

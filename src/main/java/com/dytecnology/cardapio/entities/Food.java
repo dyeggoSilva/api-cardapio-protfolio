@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "id")
 public class Food {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     private String titulo;
     private String img;
     private Integer preco;
@@ -24,5 +24,15 @@ public class Food {
         this.titulo = data.titulo();
         this.img = data.img();
         this.preco = data.preco();
+    }
+    public Food updateFromDto(FoodRequestDto dto) {
+        return new Food(this.id, dto);
+    }
+
+    private Food(Long id, FoodRequestDto dto) {
+        this.id = id;
+        this.titulo = dto.titulo();
+        this.preco = dto.preco();
+        this.img = dto.img();
     }
 }
